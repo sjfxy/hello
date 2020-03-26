@@ -23,6 +23,7 @@ func main() {
 	n.Run(hostString)
 }
 
+//测试车服务器
 func hello(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(res, "Hello from Go!")
 }
