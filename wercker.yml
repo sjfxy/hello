@@ -69,11 +69,32 @@ deploy:
        repository: sinfxy/book-go
        registry: https://registry.hub.docker.com
 
-   - cng/cf-deploy:
-       api: $API
-       user: $USER
-       password: $PASSWORD
-       org: $ORG
-       space: $SPACE
-       appname: wercker-step-hello
-       docker_image: sinfxy/book-hello
+#   - cng/cf-deploy:
+#       api: $API
+#       user: $USER
+#       password: $PASSWORD
+#       org: $ORG
+#       space: $SPACE
+#       appname: wercker-step-hello
+#       docker_image: sinfxy/book-hello
+### Linode Deployment from Docker
+linode:
+
+  steps:
+    # Installs openssh client and other dependencies.
+    - install-packages:
+        packages: openssh-client openssh-server
+    # Adds Linode server to the list of known hosts.
+    - add-to-known_hosts:
+        hostname: 122.51.193.134
+        local: true
+    # Adds SSH key created by Wercker
+    - add-ssh-key:
+        keyname: linode
+    # Custom code to pull image
+    - script:
+        name: pull latest image
+        code: |
+          ssh root@122.51.193.134 docker pull sinfxy/book-hello:latest
+          ssh root@122.51.193.134 docker tag sinfxy/book-hello:latest sinfxy/book-hello:current
+          ssh root@122.51.193.134 docker rmi sinfxy/book-hello:latest
