@@ -95,6 +95,6 @@ linode:
     - script:
         name: pull latest image
         code: |
-          ssh root@122.51.193.134 docker pull sinfxy/book-hello:latest
-          ssh root@122.51.193.134 docker tag sinfxy/book-hello:latest sinfxy/book-hello:current
-          ssh root@122.51.193.134 docker rmi sinfxy/book-hello:latest
+          ssh root@122.51.193.134 docker pull sinfxy/book-go:latest
+          ssh root@122.51.193.134 docker tag sinfxy/book-go:latest sinfxy/book-go:current
+          ssh root@122.51.193.134 docker rmi sinfxy/book-go:latest
