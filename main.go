@@ -25,6 +25,7 @@ func main() {
 
 //测试车服务器
 //测试异步
+//bus
 func hello(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(res, "Hello from Go!")
 }
