@@ -29,6 +29,7 @@ func main() {
 //ces 测试构建模块 dev 测试本地环境构建 build 构建 deploy 部署 发布 Resgister
 // 服务器部署方式
 //需要在wercker进行工作流的设计即可 并行还是关系节点即可
+//我们定义了 dev build deploy ininoe 构建 测试 发布 部署 resister 服务器即可
 func hello(res http.ResponseWriter, req *http.Request) {
 	fmt.Fprintln(res, "Hello from Go!")
 }
