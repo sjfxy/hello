@@ -76,7 +76,7 @@ deploy:
        org: $ORG
        space: $SPACE
        appname: sin-wercker-step-hello
-       docker_image: sinfxy/book-hello
+       docker_image: sinfxy/book-go
 ### Linode Deployment from Docker
 linode:
 
